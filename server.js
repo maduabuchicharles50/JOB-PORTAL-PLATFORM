@@ -1,4 +1,7 @@
 const express = require('express')
+require('dotenv').config()
+const connectDB = require('./config/dataBase')
+connectDB()
 
 const app = express()
 
@@ -10,5 +13,5 @@ app.get('/', (req,res) => {
 
 
 app.listen(port, () => {
-   console.log( `server running on port ${port} ...`);
+   console.log( `server running in ${process.env.DEV_MODE} mode on port ${port}`.bgBlue);
 })
